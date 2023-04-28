@@ -9,7 +9,7 @@ function App() {
   // const [locationInfo, setLocationInfo] = useState({});
 
   const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${locationInfo.lat}&lon=${locationInfo.lon}&appid=${apiKey}&units=metric`;
+  // const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${locationInfo.lat}&lon=${locationInfo.lon}&appid=${apiKey}&units=metric`;
 
   // const handleSubmit = async (event) => {
   //   event.preventDefault();
@@ -27,15 +27,16 @@ function App() {
   //   });
   // };
 
-  const handleSubmit = (searchDatas) => {
+  const handleSearch = (searchDatas) => {
     console.log(searchDatas);
+    const [lat, lon] = searchDatas.value.split(" ")
   };
 
   return (
     <div className="max-w-md mx-auto mt-16 p-6 border border-gray-400 rounded-md">
       <h1 className="text-2xl font-bold mb-4">Weather App</h1>
 
-      <Search handleSubmit={handleSubmit} />
+      <Search handleSearch={handleSearch} />
 
       {weatherData && (
         <div className="mt-8">

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import Weather from "../lib/Weather";
 
-export const Search = ({ handleSubmit }) => {
+export const Search = ({ handleSearch }) => {
   const [search, setSearch] = useState(null);
 
   const loadOptions = async (city) => {
@@ -24,7 +24,7 @@ export const Search = ({ handleSubmit }) => {
 
   const handleOnChange = (searchResult) => {
     setSearch(searchResult);
-    handleSubmit(searchResult);
+    handleSearch(searchResult);
   };
 
   return (
