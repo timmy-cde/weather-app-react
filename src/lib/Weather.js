@@ -1,18 +1,13 @@
 import axios from "axios";
 
 const Weather = {
-  getLocationInfo: async (url) => {
-    try {
+  getLocationInfo: async (city) => {
+    const url = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${
+      import.meta.env.VITE_WEATHER_API_KEY
+      }`;
+    if (city) {
       const res = await axios.get(url);
-      const data = JSON.parse(JSON.stringify(res.data[0]));
-      return {
-        name: data.name,
-        country: data.country,
-        lon: data.lon,
-        lat: data.lat,
-      };
-    } catch (error) {
-      return error;
+      return res;
     }
   },
   getWeather: async (url) => {
