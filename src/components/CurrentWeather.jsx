@@ -64,13 +64,19 @@ const CurrentWeather = ({
 
         <UilArrowUp />
         <p className="font-light md:text-base text-xs">
-          High: <span className="font-medium ml-1">{temp_min.toFixed()}°</span>
+          High:{" "}
+          <span className="font-medium ml-1">
+            {temp_min.toFixed()}°{unit === "metric" ? "C" : "F"}
+          </span>
         </p>
         <p className="font-light">|</p>
 
         <UilArrowDown />
         <p className="font-light md:text-base text-xs">
-          Low: <span className="font-medium ml-1">{temp_max.toFixed()}°</span>
+          Low:{" "}
+          <span className="font-medium ml-1">
+            {temp_max.toFixed()}°{unit === "metric" ? "C" : "F"}
+          </span>
         </p>
       </div>
     </>
