@@ -20,7 +20,6 @@ const CurrentWeather = ({
     country,
     sunrise,
     sunset,
-    main,
     description,
     icon,
     speed,
@@ -32,10 +31,7 @@ const CurrentWeather = ({
     <>
       <div className="flex flex-col items-center justify-center my-3">
         <p className="text-white text-2xl mt-5 font-medium">{`${name}, ${country}`}</p>
-        <div className="flex items-center justify-center pt-6 text-xl text-cyan-300">
-          {main}
-        </div>
-        <div className="flex items-center justify-center text-md text-gray-300">
+        <div className="flex items-center justify-center pt-6 text-xl capitalize text-cyan-300">
           {description}
         </div>
       </div>

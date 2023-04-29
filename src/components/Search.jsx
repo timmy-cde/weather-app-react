@@ -4,6 +4,7 @@ import { getLocationInfo } from "../lib/Weather";
 const Search = ({ search, setSearch, unit, setUnit }) => {
   const loadOptions = async (city) => {
     const locationInfo = await getLocationInfo(city);
+
     return {
       options: !city
         ? []
@@ -38,6 +39,7 @@ const Search = ({ search, setSearch, unit, setUnit }) => {
           loadOptions={loadOptions}
         />
       </div>
+
       <div className="flex flex-row items-center">
         <button
           name="metric"
@@ -46,9 +48,7 @@ const Search = ({ search, setSearch, unit, setUnit }) => {
         >
           °C
         </button>
-
         <p className="text-lg md:text-xl text-white mx-1">|</p>
-
         <button
           name="imperial"
           className="text-lg md:text-xl text-white font-light transition ease-out hover:scale-125"

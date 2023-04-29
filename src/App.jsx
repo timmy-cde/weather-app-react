@@ -32,8 +32,10 @@ function App() {
   };
 
   return (
-    <div className={`bg-gradient-to-br ${formatBackground()}`}>
-      <div className="mx-auto max-w-screen-md mt-4 py-2 sm:py-5 px-10 md:px-20 ">
+    <div
+      className={`h-screen w-screen py-2 sm:py-5 px-10 md:px-20 bg-gradient-to-br ${formatBackground()}`}
+    >
+      <div className="mx-auto max-w-screen-md ">
         <Search
           search={search}
           setSearch={setSearch}
