@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div
-      className={`h-screen w-screen py-2 sm:py-5 px-10 md:px-20 bg-gradient-to-br ${formatBackground()}`}
+      className={`h-screen w-screen py-20 sm:py-25 px-10 md:px-20 bg-gradient-to-br ${formatBackground()}`}
     >
       <div className="mx-auto max-w-screen-md ">
         <Search

@@ -1,13 +1,11 @@
 import {
   UilArrowUp,
   UilArrowDown,
-  UilTemperature,
-  UilTear,
-  UilWind,
   UilSun,
   UilSunset,
 } from "@iconscout/react-unicons";
-import { formatToLocalTime, iconUrl } from "../lib/Weather";
+import { formatToLocalTime } from "../lib/Weather";
+import WeatherCard from "./WeatherCard";
 
 const CurrentWeather = ({
   weatherData: {
@@ -16,6 +14,7 @@ const CurrentWeather = ({
     temp_min,
     temp_max,
     humidity,
+    pressure,
     name,
     country,
     sunrise,
@@ -31,40 +30,18 @@ const CurrentWeather = ({
     <>
       <div className="flex flex-col items-center justify-center my-3">
         <p className="text-white text-2xl mt-5 font-medium">{`${name}, ${country}`}</p>
-        <div className="flex items-center justify-center pt-6 text-xl capitalize text-cyan-300">
-          {description}
-        </div>
       </div>
 
-      {/* temperature and details */}
-
-      <div className="flex flex-row items-center justify-between text-white py-3">
-        <img className="w-20 md:w-24" src={iconUrl(icon)} alt="weather-icon" />
-
-        <p className="text-5xl">{temp.toFixed()}°</p>
-
-        <div className="flex flex-col space-y-2">
-          <div className="flex font-light text-sm items-center justify-center">
-            <UilTemperature size={18} className="mr-1" />
-            Real feel:{" "}
-            <span className="font-medium ml-1">{feels_like.toFixed()}°</span>
-          </div>
-
-          <div className="flex font-light text-sm items-center justify-center">
-            <UilTear size={18} className="mr-1" />
-            Humidity:{" "}
-            <span className="font-medium ml-1">{humidity.toFixed()}%</span>
-          </div>
-
-          <div className="flex font-light text-sm items-center justify-center">
-            <UilWind size={18} className="mr-1" />
-            Wind:{" "}
-            <span className="font-medium ml-1">
-              {speed.toFixed()} {unit === "metric" ? "m/s" : "mi/hr"}
-            </span>
-          </div>
-        </div>
-      </div>
+      <WeatherCard
+        description={description}
+        temp={temp}
+        feels_like={feels_like}
+        humidity={humidity}
+        pressure={pressure}
+        icon={icon}
+        speed={speed}
+        unit={unit}
+      />
 
       <div className="flex flex-row items-center justify-between text-white py-3">
         <UilSun />
@@ -95,7 +72,6 @@ const CurrentWeather = ({
         <p className="font-light md:text-base text-xs">
           Low: <span className="font-medium ml-1">{temp_max.toFixed()}°</span>
         </p>
-        <p className="font-light">|</p>
       </div>
     </>
   );
